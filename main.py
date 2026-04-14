@@ -26,7 +26,6 @@ def sygnal_wejsciowy(f, t):
         u = 0
     return u
 
-# POPRAWKA 1: Kolejność (czas, zmienna 1, zmienna 2)
 def pochodne(t, x1, x2):
     u = sygnal_wejsciowy(f, t)
     dx1 = x2
@@ -37,7 +36,6 @@ t = np.arange(0, zadany_czas, krok)
 y = np.zeros(len(t))
 dy = np.zeros(len(t))
 
-# POPRAWKA 2: Pętla od 1, korzystamy z i-1, zapisujemy do i
 for i in range(1, len(t)):
     t_n = t[i-1]
     y_n = y[i-1]
