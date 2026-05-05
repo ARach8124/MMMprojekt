@@ -68,3 +68,29 @@ wykres[1].legend(loc='upper right')
 
 plt.tight_layout()
 plt.show()
+
+licznik=[1]
+mianownik=[a,b,1]
+
+system = signal.TransferFunction(licznik,mianownik)
+
+w = np.logspace(0,5,1000)
+
+w, amplituda, faza = signal.bode(system,w)
+
+fig_bode, (ax1,ax2)=plt.subplots(2,1,figsize=(10,8))
+
+ax1.semilogx(w, amplituda)
+ax1.set_title('Charakterystyka amplitudowa')
+ax1.set_ylabel('Amplituda [dB]')
+ax1.set_xlabel('Pulsacja [rad/s]')
+ax1.grid(True,which='both')
+
+ax2.semilogx(w, faza)
+ax2.set_title('Charakterystyka fazowa')
+ax2.set_xlabel('Pulsacja [rad/s]')
+ax2.set_ylabel('Faza [deg]')
+ax2.grid(True,which='both')
+
+plt.tight_layout()
+plt.show()
